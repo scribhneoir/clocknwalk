@@ -1,1 +1,1 @@
-export type LoginProps = {};
+export type AvailabillityProps = {};
