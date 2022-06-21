@@ -14,7 +14,7 @@ const Menu = (props: MenuProps) => {
   ];
   return (
     <div
-      className={`z-10 bg-white drop-shadow border-2 absolute inset-x-0 -top-20 place-items-end justify-items-center w-28 md:w-40 2xl:w-48 ${
+      className={`z-10 bg-white drop-shadow border-2 fixed inset-x-0 -top-20 place-items-end justify-items-center w-28 md:w-40 2xl:w-48 ${
         closed ? "h-52 md:h-64 2xl:h-72 " : "h-full pt-48 md:pt-[300px]"
       }  pb-4 md:pb-8 p-2 grid auto-rows-auto rounded-full overflow-hidden transition-all duration-500 ease-in-out`}
     >

@@ -25,10 +25,10 @@ const Field = (props: FieldProps) => {
       />
       {error && (
         <div className="justify-end px-4 flex flex-row items-center">
-          <Text color="text-red-500" size="text-sm">
+          <Text color="text-red-500" size="text-xs md:text-sm">
             <IoIosWarning />
           </Text>
-          <Text color="text-red-500" size="text-sm">
+          <Text color="text-red-500" size="text-xs md:text-sm">
             {error}
           </Text>
         </div>

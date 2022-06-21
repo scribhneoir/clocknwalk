@@ -17,8 +17,10 @@ const Login = (props: LoginProps) => {
   const [last, setLast] = useState("");
   const [signUp, setSignUp] = useState(false);
 
+  const signUpHandler = () => {};
+  const loginSubmit = () => {};
   return (
-    <div className="flex flex-col md:w-1/2 h-full py-28 md:py-40 justify-self-center self-center">
+    <>
       <div className="flex flex-row py-2">
         <Header>CL</Header>
         <Header>
@@ -48,7 +50,7 @@ const Login = (props: LoginProps) => {
           setSignUp={setSignUp}
         />
       </Card>
-    </div>
+    </>
   );
 };
 
