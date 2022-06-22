@@ -1,0 +1,1 @@
+{"version":3,"file":"Confirmation.stories.85b2c44d.js","sources":["../../src/pages/Calendar/Confirmation/Confirmation.tsx"],"sourcesContent":["import { ConfirmationProps } from \"./Confirmation.models\";\n\nconst Confirmation = (props: ConfirmationProps) => {};\n\nexport default Confirmation;\n"],"names":[],"mappings":"2wBAEA,KAAA,GAAA,AAAA,GAAA,CAAqD"}
