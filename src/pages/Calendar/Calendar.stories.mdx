@@ -1,0 +1,17 @@
+import { Canvas, Story, Meta } from "@storybook/addon-docs";
+
+import Calendar from "./Calendar";
+
+<Meta title="Pages/Calendar" component={Calendar} />
+
+export const Template = (args) => <Calendar {...args} />;
+
+# Calendar
+
+The Calendar page shows the Availabillity component of the next month so that the User can set their availabillity, the Confirmation component to display a proper submission of the User's schedule, and the Schedule component to display the current month's schedule.
+
+<Canvas>
+  <Story name="Calendar" args={{}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

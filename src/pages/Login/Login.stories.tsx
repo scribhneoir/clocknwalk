@@ -12,5 +12,3 @@ const Template: Story<LoginProps> = (args) => <Login {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
-export const SignUp = Template.bind({});
-SignUp.args = {};
