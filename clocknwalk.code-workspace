@@ -7,5 +7,7 @@
       "path": "../realm-backend"
     }
   ],
-  "settings": {}
+  "settings": {
+    "testing.automaticallyOpenPeekView": "never"
+  }
 }

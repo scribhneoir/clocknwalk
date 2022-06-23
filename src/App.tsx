@@ -12,7 +12,6 @@ export const appAtom = atom(new Realm.App({ id: "clocknwalk-xilyu" }));
 
 function App() {
   const [closed, setClosed] = useState(true);
-  const [app] = useAtom(appAtom);
   const toggleClosed = () => {
     setClosed(!closed);
   };
@@ -20,7 +19,7 @@ function App() {
     <Provider>
       <PageContainer closed={closed} toggleClosed={toggleClosed}>
         <Switch>
-          <Route path="/login">
+          <Route path={["/", "/login"]}>
             <Login />
           </Route>
           <Route path="/calendar">
