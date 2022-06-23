@@ -10,4 +10,5 @@ export type SignUpFormProps = {
   pword2: string;
   setPWord2: (value: string) => void;
   setSignUp: (signUp: boolean) => void;
+  signUpSubmit: () => void;
 };

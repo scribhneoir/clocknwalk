@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { Provider } from "jotai";
 import PageContainer from "./components/PageContainer";
 import Login from "./pages/Login";
@@ -12,12 +12,14 @@ function App() {
   return (
     <Provider>
       <PageContainer closed={closed} toggleClosed={toggleClosed}>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/calendar">
-          <Calendar />
-        </Route>
+        <Switch>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/calendar">
+            <Calendar />
+          </Route>
+        </Switch>
       </PageContainer>
     </Provider>
   );

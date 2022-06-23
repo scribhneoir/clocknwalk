@@ -16,6 +16,7 @@ const SignUpForm = (props: SignUpFormProps) => {
     pword2,
     setPWord2,
     setSignUp,
+    signUpSubmit,
   } = props;
   const [pwordError] = useValidPassword(pword);
   const [emailError] = useValidEmail(email);
@@ -62,7 +63,12 @@ const SignUpForm = (props: SignUpFormProps) => {
         >
           Login
         </Button>
-        <Button primary onClick={() => {}}>
+        <Button
+          primary
+          onClick={() => {
+            signUpSubmit();
+          }}
+        >
           Sign Up
         </Button>
       </div>

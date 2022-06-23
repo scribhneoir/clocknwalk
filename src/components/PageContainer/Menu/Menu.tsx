@@ -5,12 +5,32 @@ import { IoPeopleCircle, IoCalendarNumber } from "react-icons/io5";
 import Button from "../../Atoms/Button";
 import MenuItem from "./MenuItem";
 import { MenuProps } from "./Menu.models";
+import { useHistory } from "react-router-dom";
 const Menu = (props: MenuProps) => {
   const { closed, toggleClosed } = props;
+  const history = useHistory();
   const menuItems = [
-    { icon: <IoCalendarNumber />, label: "Schedule", onClick: () => {} },
-    { icon: <IoPeopleCircle />, label: "Team", onClick: () => {} },
-    { icon: <RiLogoutCircleLine />, label: "Logout", onClick: () => {} },
+    {
+      icon: <IoCalendarNumber />,
+      label: "Schedule",
+      onClick: () => {
+        history.push("/calendar");
+      },
+    },
+    {
+      icon: <IoPeopleCircle />,
+      label: "Team",
+      onClick: () => {
+        history.push("/edit-team");
+      },
+    },
+    {
+      icon: <RiLogoutCircleLine />,
+      label: "Logout",
+      onClick: () => {
+        history.push("/login");
+      },
+    },
   ];
   return (
     <div

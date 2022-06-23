@@ -4,4 +4,5 @@ export type LoginFormProps = {
   pword: string;
   setPWord: (value: string) => void;
   setSignUp: (signUp: boolean) => void;
+  loginSubmit: () => void;
 };

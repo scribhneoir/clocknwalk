@@ -3,7 +3,7 @@ import Field from "../../../components/Atoms/Field";
 import { LoginFormProps } from "./LoginForm.models";
 
 const LoginForm = (props: LoginFormProps) => {
-  const { email, setEmail, pword, setPWord, setSignUp } = props;
+  const { email, setEmail, pword, setPWord, setSignUp, loginSubmit } = props;
 
   return (
     <>
@@ -27,7 +27,12 @@ const LoginForm = (props: LoginFormProps) => {
         >
           Sign Up
         </Button>
-        <Button primary onClick={() => {}}>
+        <Button
+          primary
+          onClick={() => {
+            loginSubmit();
+          }}
+        >
           Login
         </Button>
       </div>

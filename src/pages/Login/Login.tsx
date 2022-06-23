@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { BsClockFill } from "react-icons/bs";
+import { useHistory } from "react-router-dom";
 
-import Button from "../../components/Atoms/Button";
 import Card from "../../components/Atoms/Card";
-import Field from "../../components/Atoms/Field";
 import Header from "../../components/Atoms/Header";
-import { LoginProps } from "./Login.models";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
+import { LoginProps } from "./Login.models";
 
 const Login = (props: LoginProps) => {
   const [email, setEmail] = useState("");
@@ -17,8 +16,14 @@ const Login = (props: LoginProps) => {
   const [last, setLast] = useState("");
   const [signUp, setSignUp] = useState(false);
 
-  const signUpHandler = () => {};
-  const loginSubmit = () => {};
+  const history = useHistory();
+
+  const signUpSubmit = () => {
+    history.push("/edit-team");
+  };
+  const loginSubmit = () => {
+    history.push("/calendar");
+  };
   return (
     <>
       <div className="flex flex-row py-2">
@@ -35,6 +40,7 @@ const Login = (props: LoginProps) => {
           setEmail={setEmail}
           setPWord={setPWord}
           setSignUp={setSignUp}
+          loginSubmit={loginSubmit}
         />
         <SignUpForm
           first={first}
@@ -48,6 +54,7 @@ const Login = (props: LoginProps) => {
           setLast={setLast}
           setPWord2={setPWord2}
           setSignUp={setSignUp}
+          signUpSubmit={signUpSubmit}
         />
       </Card>
     </>
