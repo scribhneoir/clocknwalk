@@ -1,0 +1,34 @@
+import { Canvas, Story, Meta } from "@storybook/addon-docs";
+
+import EditPerson from "./EditPerson";
+
+<Meta title="Pages/EditStaff/EditPerson" component={EditPerson} />
+
+export const Template = (args) => <EditPerson {...args} />;
+
+# EditPerson
+
+<Canvas>
+  <Story
+    name="EditPerson"
+    args={{
+      person: {
+        first: "jane",
+        last: "doe",
+        email: "j.doe@email.com",
+        password: "DudderBudder2@",
+      },
+      editPerson: (key, value) => {
+        console.log(`edit ${key}:${value}`);
+      },
+      setEdit: (edit) => {
+        console.log(`setEdit ${edit}`);
+      },
+      editSubmit: () => {
+        console.log(`edit submit`);
+      },
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

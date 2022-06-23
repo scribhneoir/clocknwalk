@@ -42,7 +42,7 @@ const Login = (props: LoginProps) => {
   };
   return (
     <>
-      <div className="flex flex-row py-2">
+      <div className="flex flex-row mr-auto  my-2">
         <Header>CL</Header>
         <Header>
           <BsClockFill />

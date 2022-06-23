@@ -6,6 +6,7 @@ import Availabillity from "./Availabillity";
 import PrevSchedule from "./PrevSchedule";
 import { CalendarProps } from "./Calendar.models";
 import Confirmation from "./Confirmation";
+import Header from "../../components/Atoms/Header";
 
 const Calendar = (props: CalendarProps) => {
   const [availabillity, setAvailabillity] = useState(
@@ -44,6 +45,9 @@ const Calendar = (props: CalendarProps) => {
   };
   return (
     <>
+      <div className="mr-auto ml-4 my-2">
+        <Header h={2}>Calendar</Header>
+      </div>
       <Card flipped={showSchedule}>
         <div className={`flex justify-center items-center`}>
           <div
