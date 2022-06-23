@@ -11,14 +11,14 @@ const SignUpForm = (props: SignUpFormProps) => {
     setLast,
     email,
     setEmail,
-    pword,
-    setPWord,
-    pword2,
-    setPWord2,
+    password,
+    setPassword,
+    password2,
+    setPassword2,
     setSignUp,
     signUpSubmit,
   } = props;
-  const [pwordError] = useValidPassword(pword);
+  const [passwordError] = useValidPassword(password);
   const [emailError] = useValidEmail(email);
   return (
     <>
@@ -42,16 +42,16 @@ const SignUpForm = (props: SignUpFormProps) => {
         placeholder="email"
       />
       <Field
-        onChange={setPWord}
-        value={pword}
-        error={pwordError}
+        onChange={setPassword}
+        value={password}
+        error={passwordError}
         type="password"
         placeholder="password"
       />
       <Field
-        onChange={setPWord2}
-        value={pword2}
-        error={pword !== pword2 ? "Passwords do not match" : undefined}
+        onChange={setPassword2}
+        value={password2}
+        error={password !== password2 ? "Passwords do not match" : undefined}
         type="password"
         placeholder="retype password"
       />

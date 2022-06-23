@@ -3,7 +3,8 @@ import Field from "../../../components/Atoms/Field";
 import { LoginFormProps } from "./LoginForm.models";
 
 const LoginForm = (props: LoginFormProps) => {
-  const { email, setEmail, pword, setPWord, setSignUp, loginSubmit } = props;
+  const { email, setEmail, password, setPassword, setSignUp, loginSubmit } =
+    props;
 
   return (
     <>
@@ -14,8 +15,8 @@ const LoginForm = (props: LoginFormProps) => {
         placeholder="email"
       />
       <Field
-        onChange={setPWord}
-        value={pword}
+        onChange={setPassword}
+        value={password}
         type="password"
         placeholder="password"
       />

@@ -1,28 +1,44 @@
 import { useState } from "react";
 import { BsClockFill } from "react-icons/bs";
 import { useHistory } from "react-router-dom";
+import { useAtom } from "jotai";
+import * as Realm from "realm-web";
 
 import Card from "../../components/Atoms/Card";
 import Header from "../../components/Atoms/Header";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 import { LoginProps } from "./Login.models";
+import { appAtom } from "../../App";
 
 const Login = (props: LoginProps) => {
   const [email, setEmail] = useState("");
-  const [pword, setPWord] = useState("");
-  const [pword2, setPWord2] = useState("");
+  const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
   const [signUp, setSignUp] = useState(false);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
 
   const history = useHistory();
+  const [app] = useAtom(appAtom);
 
-  const signUpSubmit = () => {
-    history.push("/edit-team");
+  const signUpSubmit = async () => {
+    app.emailPasswordAuth.registerUser({ email, password });
+
+    setSignUp(false);
   };
-  const loginSubmit = () => {
-    history.push("/calendar");
+  const loginSubmit = async () => {
+    setIsLoggingIn(true);
+    try {
+      await app
+        .logIn(Realm.Credentials.emailPassword(email, password))
+        .then(() => {
+          history.push("/calendar");
+        });
+    } catch (err) {
+      console.error("Failed to log in", err);
+    }
   };
   return (
     <>
@@ -36,9 +52,9 @@ const Login = (props: LoginProps) => {
       <Card flipped={signUp}>
         <LoginForm
           email={email}
-          pword={pword}
+          password={password}
           setEmail={setEmail}
-          setPWord={setPWord}
+          setPassword={setPassword}
           setSignUp={setSignUp}
           loginSubmit={loginSubmit}
         />
@@ -46,13 +62,13 @@ const Login = (props: LoginProps) => {
           first={first}
           last={last}
           email={email}
-          pword={pword}
-          pword2={pword2}
+          password={password}
+          password2={password2}
           setEmail={setEmail}
-          setPWord={setPWord}
+          setPassword={setPassword}
           setFirst={setFirst}
           setLast={setLast}
-          setPWord2={setPWord2}
+          setPassword2={setPassword2}
           setSignUp={setSignUp}
           signUpSubmit={signUpSubmit}
         />

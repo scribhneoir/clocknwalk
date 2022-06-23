@@ -21,7 +21,7 @@ const Menu = (props: MenuProps) => {
       icon: <IoPeopleCircle />,
       label: "Team",
       onClick: () => {
-        history.push("/edit-team");
+        history.push("/edit-staff");
       },
     },
     {

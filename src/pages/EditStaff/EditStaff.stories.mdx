@@ -1,0 +1,15 @@
+import { Canvas, Story, Meta } from "@storybook/addon-docs";
+
+import EditStaff from "./EditStaff";
+
+<Meta title="Pages/EditStaff" component={EditStaff} />
+
+export const Template = (args) => <EditStaff {...args} />;
+
+# EditStaff
+
+<Canvas>
+  <Story name="EditStaff" args={{}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

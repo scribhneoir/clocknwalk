@@ -14,22 +14,22 @@ export const useValidEmail = (email: string) => {
   return [valid];
 };
 
-export const useValidPassword = (pword: string) => {
+export const useValidPassword = (password: string) => {
   const [valid, setValid] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     setValid(
-      !pword
+      !password
         ? undefined
-        : pword.length < 8
+        : password.length < 8
         ? "password must be longer than 8 characters"
-        : !/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(pword)
+        : !/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(password)
         ? "password must contain a special character"
-        : !/[0-9]/.test(pword)
+        : !/[0-9]/.test(password)
         ? "password must contain a number"
         : undefined
     );
-  }, [pword]);
+  }, [password]);
 
   return [valid];
 };
