@@ -24,9 +24,9 @@ const Login = (props: LoginProps) => {
   const [app] = useAtom(appAtom);
 
   const signUpSubmit = async () => {
-    app.emailPasswordAuth.registerUser({ email, password });
-
-    setSignUp(false);
+    await app.emailPasswordAuth.registerUser({ email, password }).then(() => {
+      loginSubmit();
+    });
   };
   const loginSubmit = async () => {
     setIsLoggingIn(true);

@@ -16,6 +16,7 @@ export type TextSizeType =
 export type TextProps = {
   children?: React.ReactNode;
   bold?: boolean;
+  italic?: boolean;
   color?: string;
   size?: TextSizeType;
 };

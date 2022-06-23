@@ -1,0 +1,18 @@
+import { Canvas, Story, Meta } from "@storybook/addon-docs";
+
+import Person from "./Person";
+
+<Meta title="Pages/EditStaff/Person" component={Person} />
+
+export const Template = (args) => <Person {...args} />;
+
+# Person
+
+<Canvas>
+  <Story
+    name="Person"
+    args={{ first: "jon", last: "doe", email: "j.doe@email.com" }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
