@@ -5,12 +5,12 @@ import { AvailabillityProps } from "./Availabillity.models";
 import Button from "../../../components/Atoms/Button";
 
 const Availabillity = (props: AvailabillityProps) => {
-  const { aCalGrid, onAvailabillityChange, month, onClear } = props;
+  const { aCalGrid, onAvailabillityChange, month, onClear, onSubmit } = props;
   console.log(aCalGrid);
   return (
     <div>
       <Header h={2}>{month}</Header>
-      <div className={`grid grid-cols-7 lg:gap-2`}>
+      <div className={`grid grid-cols-7 lg:gap-2 mb-4`}>
         <Text>S</Text>
         <Text>M</Text>
         <Text>T</Text>
@@ -40,7 +40,12 @@ const Availabillity = (props: AvailabillityProps) => {
         >
           clear
         </Button>
-        <Button onClick={() => {}} primary>
+        <Button
+          onClick={() => {
+            onSubmit();
+          }}
+          primary
+        >
           submit
         </Button>
       </div>

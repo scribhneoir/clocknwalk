@@ -12,10 +12,10 @@ function App() {
   return (
     <Provider>
       <PageContainer closed={closed} toggleClosed={toggleClosed}>
-        <Route path="login">
+        <Route path="/login">
           <Login />
         </Route>
-        <Route path="*">
+        <Route path="/calendar">
           <Calendar />
         </Route>
       </PageContainer>

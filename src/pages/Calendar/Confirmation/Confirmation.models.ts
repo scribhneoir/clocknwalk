@@ -1,1 +1,1 @@
-export type ConfirmationProps = {};
+export type ConfirmationProps = { onEdit: () => void };
