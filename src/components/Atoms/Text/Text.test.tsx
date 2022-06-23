@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import Text from "./index";
 describe("Atoms/Text", () => {
   beforeEach(() => {
-    render(Text, { children: "hello world" });
+    render(<Text>hello world</Text>);
   });
 
   test("Should show text", () => {

@@ -19,7 +19,7 @@ function App() {
     <Provider>
       <PageContainer closed={closed} toggleClosed={toggleClosed}>
         <Switch>
-          <Route path={["/", "/login"]}>
+          <Route path={"/login"}>
             <Login />
           </Route>
           <Route path="/calendar">
