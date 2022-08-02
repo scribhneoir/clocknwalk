@@ -36,6 +36,9 @@ function App() {
                 <Route path="/edit-staff">
                   <EditStaff />
                 </Route>
+                <Route path="*">
+                  <Redirect to="/calendar" />
+                </Route>
               </Switch>
             ) : (
               <Switch>
@@ -44,6 +47,9 @@ function App() {
                 </Route>
                 <Route path="/login">
                   <Login />
+                </Route>
+                <Route path="*">
+                  <Redirect to="/login" />
                 </Route>
               </Switch>
             )}
