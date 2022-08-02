@@ -12,7 +12,9 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@types/react-router-dom": "^5.3.3",
+    "graphql": "^16.5.0",
     "jotai": "^1.7.2",
     "react": "^18.0.0",
     "react-card-flip": "^1.1.5",

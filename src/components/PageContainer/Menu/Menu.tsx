@@ -7,10 +7,10 @@ import MenuItem from "./MenuItem";
 import { MenuProps } from "./Menu.models";
 import { useHistory } from "react-router-dom";
 import { useAtom } from "jotai";
-import { appAtom } from "../../../App";
+import { userAtom } from "../../../App";
 const Menu = (props: MenuProps) => {
   const { closed, toggleClosed } = props;
-  const [app] = useAtom(appAtom);
+  const [user] = useAtom(userAtom);
   const history = useHistory();
   const menuItems = [
     {
@@ -31,8 +31,8 @@ const Menu = (props: MenuProps) => {
       icon: <RiLogoutCircleLine />,
       label: "Logout",
       onClick: async () => {
-        app.currentUser &&
-          (await app.currentUser.logOut().then(() => {
+        user &&
+          (await user.logOut().then(() => {
             history.push("/login");
           }));
       },
