@@ -8,8 +8,7 @@ import {
 } from "@apollo/client";
 import { appAtom, userAtom } from "../../App";
 // Create an ApolloClient that connects to the provided Realm.App's GraphQL API
-const createRealmApolloClient = (app: Realm.App) => {
-  const [user] = useAtom(userAtom);
+const createRealmApolloClient = (app: Realm.App, user: Realm.User | null) => {
   const link = new HttpLink({
     // Realm apps use a standard GraphQL endpoint, identified by their App ID
     uri: `https://realm.mongodb.com/api/client/v2.0/app/${app.id}/graphql`,
@@ -38,9 +37,10 @@ const createRealmApolloClient = (app: Realm.App) => {
 
 export default function RealmApolloProvider(props: { children: JSX.Element }) {
   const [app] = useAtom(appAtom);
-  const [client, setClient] = useState(createRealmApolloClient(app));
+  const [user] = useAtom(userAtom);
+  const [client, setClient] = useState(createRealmApolloClient(app, user));
   useEffect(() => {
-    return setClient(createRealmApolloClient(app));
+    return setClient(createRealmApolloClient(app, user));
   }, [app]);
   return <ApolloProvider client={client}>{props.children}</ApolloProvider>;
 }
