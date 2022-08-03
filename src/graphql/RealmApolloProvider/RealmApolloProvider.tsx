@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useAtom } from "jotai";
 import {
   ApolloClient,
   HttpLink,
   InMemoryCache,
   ApolloProvider,
 } from "@apollo/client";
-import { appAtom, userAtom } from "../../App";
+import { useRealmApp } from "../../components/RealmProvider/RealmProvider";
 // Create an ApolloClient that connects to the provided Realm.App's GraphQL API
 const createRealmApolloClient = (app: Realm.App, user: Realm.User | null) => {
   const link = new HttpLink({
     // Realm apps use a standard GraphQL endpoint, identified by their App ID
-    uri: `https://realm.mongodb.com/api/client/v2.0/app/${app.id}/graphql`,
+    uri: `https://realm.mongodb.com/api/client/v2.0/app/${app?.id}/graphql`,
     // A custom fetch handler adds the logged in user's access token to GraphQL requests
     fetch: async (uri, options) => {
       if (!user) {
@@ -36,11 +35,12 @@ const createRealmApolloClient = (app: Realm.App, user: Realm.User | null) => {
 };
 
 export default function RealmApolloProvider(props: { children: JSX.Element }) {
-  const [app] = useAtom(appAtom);
-  const [user] = useAtom(userAtom);
-  const [client, setClient] = useState(createRealmApolloClient(app, user));
+  const { app, currentUser } = useRealmApp();
+  const [client, setClient] = useState(
+    createRealmApolloClient(app, currentUser)
+  );
   useEffect(() => {
-    return setClient(createRealmApolloClient(app, user));
+    return setClient(createRealmApolloClient(app, currentUser));
   }, [app]);
   return <ApolloProvider client={client}>{props.children}</ApolloProvider>;
 }

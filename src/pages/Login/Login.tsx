@@ -9,7 +9,7 @@ import Header from "../../components/Atoms/Header";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 import { LoginProps } from "./Login.models";
-import { appAtom } from "../../App";
+import { useRealmApp } from "../../components/RealmProvider/RealmProvider";
 
 const Login = (props: LoginProps) => {
   const [email, setEmail] = useState("");
@@ -21,7 +21,7 @@ const Login = (props: LoginProps) => {
   const [isLoggingIn, setIsLoggingIn] = useState(false);
 
   const history = useHistory();
-  const [app] = useAtom(appAtom);
+  const app = useRealmApp();
 
   const signUpSubmit = async () => {
     await app.emailPasswordAuth.registerUser({ email, password }).then(() => {

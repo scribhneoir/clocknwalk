@@ -6,11 +6,11 @@ import Button from "../../Atoms/Button";
 import MenuItem from "./MenuItem";
 import { MenuProps } from "./Menu.models";
 import { useHistory } from "react-router-dom";
-import { useAtom } from "jotai";
-import { userAtom } from "../../../App";
+import { useRealmApp } from "../../RealmProvider/RealmProvider";
+import { useEffect } from "react";
 const Menu = (props: MenuProps) => {
   const { closed, toggleClosed } = props;
-  const [user] = useAtom(userAtom);
+  const app = useRealmApp();
   const history = useHistory();
   const menuItems = [
     {
@@ -31,13 +31,19 @@ const Menu = (props: MenuProps) => {
       icon: <RiLogoutCircleLine />,
       label: "Logout",
       onClick: async () => {
-        user &&
-          (await user.logOut().then(() => {
+        app.currentUser &&
+          (await app.logOut().then(() => {
             history.push("/login");
           }));
       },
     },
   ];
+  useEffect(() => {
+    if ((app.currentUser && closed) || (!app.currentUser && !closed)) {
+      toggleClosed();
+    }
+  }, [app.currentUser]);
+
   return (
     <div
       className={`z-10 bg-white drop-shadow border-2 fixed inset-x-0 -top-20 place-items-end justify-items-center w-28 md:w-40 2xl:w-48 ${
@@ -49,7 +55,7 @@ const Menu = (props: MenuProps) => {
           icon
           primary
           onClick={() => {
-            toggleClosed();
+            app.currentUser && toggleClosed();
           }}
         >
           <BsClockFill />
