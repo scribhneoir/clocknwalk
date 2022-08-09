@@ -9,7 +9,7 @@ import Header from "../../components/Atoms/Header";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 import { LoginProps } from "./Login.models";
-import { useRealmApp } from "../../components/RealmProvider/RealmProvider";
+import { useRealmApp } from "../../components/RealmProvider";
 
 const Login = (props: LoginProps) => {
   const [email, setEmail] = useState("");
@@ -32,7 +32,10 @@ const Login = (props: LoginProps) => {
     setIsLoggingIn(true);
     try {
       await app
-        .logIn(Realm.Credentials.emailPassword(email, password))
+        .logIn(Realm.Credentials.emailPassword(email, password), {
+          first,
+          last,
+        })
         .then(() => {
           history.push("/calendar");
         });

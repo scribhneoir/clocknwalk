@@ -3,4 +3,5 @@ export type PersonProps = {
   last: string;
   email: string;
   onEdit: () => void;
+  onDelete: () => void;
 };

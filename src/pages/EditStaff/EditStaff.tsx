@@ -50,6 +50,12 @@ const EditStaff = (props: EditStaffProps) => {
     setStaff(editedStaff);
     setEdit(-1);
   };
+
+  const onDelete = (index: number) => {
+    staff.splice(index, 1);
+    setStaff([...staff]);
+  };
+
   return (
     <>
       <div className="mr-auto ml-4 my-2">
@@ -60,7 +66,13 @@ const EditStaff = (props: EditStaffProps) => {
         <div className="flex flex-col divide-y items-center justify-center">
           {staff.length ? (
             staff.map((member, index) => {
-              return <Person {...member} onEdit={() => setEdit(index)} />;
+              return (
+                <Person
+                  {...member}
+                  onEdit={() => setEdit(index)}
+                  onDelete={() => onDelete(index)}
+                />
+              );
             })
           ) : (
             <div className={`flex flex-col justify-center items-center`}>

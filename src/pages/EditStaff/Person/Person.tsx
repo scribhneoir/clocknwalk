@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
-import { TiDeleteOutline } from "react-icons/ti";
+import { AiOutlineUserDelete } from "react-icons/ai";
 import Button from "../../../components/Atoms/Button";
 
 import Text from "../../../components/Atoms/Text";
 import { PersonProps } from "./Person.models";
 
 const Person = (props: PersonProps) => {
-  const { first, last, email, onEdit } = props;
+  const { first, last, email, onEdit, onDelete } = props;
   return (
     <div className={`grid grid-cols-12 p-2 w-full`}>
       <div className="col-span-1 mr-2">
@@ -27,7 +27,7 @@ const Person = (props: PersonProps) => {
       <div className={`col-span-5`}>
         <Text italic>{email}</Text>
       </div>
-      <div className="col-span-1 ml-auto">
+      <div className="col-span-2 grid-cols-2 ml-auto">
         <Button
           onClick={() => {
             onEdit();
@@ -35,6 +35,14 @@ const Person = (props: PersonProps) => {
           light
         >
           <FiEdit />
+        </Button>
+        <Button
+          onClick={() => {
+            onDelete();
+          }}
+          light
+        >
+          <AiOutlineUserDelete />
         </Button>
       </div>
     </div>

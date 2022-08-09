@@ -1,1 +1,1 @@
-export { default } from "./RealmProvider";
+export { default, useRealmApp } from "./RealmProvider";

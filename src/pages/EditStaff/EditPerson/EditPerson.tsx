@@ -5,8 +5,7 @@ import { EditPersonProps } from "./EditPerson.models";
 
 const EditPerson = (props: EditPersonProps) => {
   const { person, editPerson, setEdit, editSubmit } = props;
-  const { email, password, first, last } = person;
-  const [passwordError] = useValidPassword(password);
+  const { email, first, last } = person;
   const [emailError] = useValidEmail(email);
   return (
     <>
@@ -34,15 +33,6 @@ const EditPerson = (props: EditPersonProps) => {
         error={emailError}
         type="email"
         placeholder="email"
-      />
-      <Field
-        onChange={(value: string) => {
-          editPerson("password", value);
-        }}
-        value={password}
-        error={passwordError}
-        type="password"
-        placeholder="password"
       />
       <div className="grid grid-cols-2 gap-8 justify-center content-center justify-self-center self-center py-2">
         <Button
