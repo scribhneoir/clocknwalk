@@ -1,9 +1,9 @@
 import { Redirect, Route, Switch } from "react-router-dom";
 
-import Login from "../../pages/Login";
-import Calendar from "../../pages/Calendar";
-import EditStaff from "../../pages/EditStaff";
-import { useRealmApp } from "../RealmProvider/RealmProvider";
+import Login from "../pages/Login";
+import Calendar from "../pages/Calendar";
+import EditStaff from "../pages/EditStaff";
+import { useRealmApp } from "../components/RealmProvider/RealmProvider";
 
 function Routes() {
   const app = useRealmApp();

@@ -6,13 +6,13 @@ const PageContainer = (props: PageContainerProps) => {
   return (
     <div className="w-screen h-screen">
       <Menu closed={closed} toggleClosed={toggleClosed} />
-      <div className="absolute inset-0 w-screen h-screen p-4 md:pl-44 flex justify-center content-center">
+      <div className="absolute inset-0 w-screen h-screen p-4 md:pl-44 flex justify-center content-center overflow-hidden">
         <div className="absolute left-0 w-screen h-screen flex flex-col-reverse">
           <Wave
             fill="rgb(56 189 248)"
             paused={false}
             options={{
-              height: 20,
+              height: 10,
               amplitude: 30,
               speed: 0.15,
               points: 3,
